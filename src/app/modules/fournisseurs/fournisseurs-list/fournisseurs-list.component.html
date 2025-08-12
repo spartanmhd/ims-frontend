@@ -1,0 +1,92 @@
+<div class="fournisseur-container">
+  <h1 class="fournisseur-title">Fournisseurs List</h1>
+
+  <!-- Search Bar: OUTSIDE the table, with a button -->
+  <div class="search-bar">
+    <input
+      class="form-field"
+      type="text"
+      [(ngModel)]="searchIce"
+      placeholder="Search ICE..."
+      name="searchIce"
+    />
+    <button class="action-btn search-btn" (click)="triggerSearch()" type="button">
+      <span class="material-symbols-outlined">search</span>
+    </button>
+  </div>
+
+  <div class="fournisseur-table-card">
+    <table class="fournisseur-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>ICE</th>
+          <th>Tél</th>
+          <th>Ville</th>
+          <th>Adresse</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (fournisseur of filteredFournisseurs(); track fournisseur.idFournisseur) {
+          <tr>
+            <td>{{ fournisseur.idFournisseur }}</td>
+            <td>{{ fournisseur.name }}</td>
+            <td>{{ fournisseur.ice }}</td>
+            <td>{{ fournisseur.tel }}</td>
+            <td>{{ fournisseur.ville }}</td>
+            <td>{{ fournisseur.adresse }}</td>
+            <td>
+              <button class="action-btn edit-btn" (click)="editFournisseur(fournisseur)">
+                <span class="material-symbols-outlined">edit</span> Edit
+              </button>
+              <button class="action-btn delete-btn" (click)="deleteFournisseur(fournisseur.idFournisseur!)">
+                <span class="material-symbols-outlined">delete</span> Delete
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add Bar -->
+  <div class="add-fournisseur-card">
+    <h2>Add Fournisseur</h2>
+  
+    @if (addError) {
+      <div class="text-danger" style="margin-bottom: 1em;">
+        {{ addError }}
+      </div>
+    }
+  
+    <form class="add-fournisseur-form" (ngSubmit)="addFournisseur()">
+      <input class="form-field" placeholder="NAME" [(ngModel)]="newFournisseur.name" name="name" required>
+      <input class="form-field" placeholder="ICE" [(ngModel)]="newFournisseur.ice" name="ice" required>
+      <input class="form-field" placeholder="Tél" [(ngModel)]="newFournisseur.tel" name="tel" required>
+      <input class="form-field" placeholder="Ville" [(ngModel)]="newFournisseur.ville" name="ville" required>
+      <input class="form-field" placeholder="Adresse" [(ngModel)]="newFournisseur.adresse" name="adresse" required>
+      <button class="add-btn" type="submit">
+        <span class="material-symbols-outlined">add_circle</span> Add
+      </button>
+    </form>
+  </div>
+
+  <!-- Edit Modal/Card -->
+  @if (selectedFournisseur) {
+    <div class="edit-fournisseur-card">
+      <h2>Edit Fournisseur</h2>
+      <form class="edit-fournisseur-form" (ngSubmit)="updateFournisseur()">
+        <input class="form-field" placeholder="NAME" [(ngModel)]="selectedFournisseur.name" name="editName" required>
+        <input class="form-field" placeholder="ICE" [(ngModel)]="selectedFournisseur.ice" name="editIce" required>
+        <input class="form-field" placeholder="Tél" [(ngModel)]="selectedFournisseur.tel" name="editTel" required>
+        <input class="form-field" placeholder="Ville" [(ngModel)]="selectedFournisseur.ville" name="editVille" required>
+        <input class="form-field" placeholder="Adresse" [(ngModel)]="selectedFournisseur.adresse" name="editAdresse" required>
+        <button class="edit-btn" type="submit">
+          <span class="material-symbols-outlined">save</span> Update
+        </button>
+      </form>
+    </div>
+  }
+</div>

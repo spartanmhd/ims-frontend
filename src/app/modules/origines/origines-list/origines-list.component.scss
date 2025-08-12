@@ -1,22 +1,22 @@
-.fournisseur-container {
+.origine-container {
     margin: 2rem auto;
     padding: 2rem;
     border-radius: 24px;
-    background: #f3ead9; /* Light coffee cream */
+    background: #f3ead9;
     box-shadow: 0 8px 36px 0 #d7c4a340;
     max-width: 1200px;
   }
   
-  .fournisseur-title {
+  .origine-title {
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: 1.2px;
     margin-bottom: 2rem;
-    color: #3d2c1a; /* Dark roast */
+    color: #3d2c1a;
     font-family: 'Nunito', 'Inter', Arial, sans-serif;
   }
   
-  .fournisseur-table-card {
+  .origine-table-card {
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 2px 16px rgba(183, 159, 126, 0.08);
@@ -25,15 +25,15 @@
     margin-bottom: 2.5rem;
   }
   
-  .fournisseur-table {
+  .origine-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
   }
   
-  .fournisseur-table th {
-    background: #e5d3b3; /* Light brown */
-    color: #3d2c1a; /* Dark roast */
+  .origine-table th {
+    background: #e5d3b3;
+    color: #3d2c1a;
     font-weight: 600;
     font-size: 1rem;
     padding: 0.65em 1em;
@@ -41,15 +41,15 @@
     border: none;
   }
   
-  .fournisseur-table td {
+  .origine-table td {
     padding: 0.65em 1em;
     font-size: 1rem;
     border: none;
     border-bottom: 1px solid #f7f3ee;
-    color: #6f4e37; /* Espresso */
+    color: #6f4e37;
   }
   
-  .fournisseur-table tr:hover {
+  .origine-table tr:hover {
     background: #f3ead9;
   }
   
@@ -61,7 +61,7 @@
     padding: 0.5em 1.1em;
     margin-right: 0.4em;
     color: #fff;
-    background: #b89c6b; /* Latte */
+    background: #b89c6b;
     box-shadow: 0 2px 8px #d7c4a320;
     transition: background 0.15s, box-shadow 0.15s;
     outline: none;
@@ -73,21 +73,21 @@
   }
   
   .edit-btn {
-    background: #6f4e37; /* Espresso */
+    background: #6f4e37;
   }
   .edit-btn:hover {
     background: #4b3621;
   }
   
   .delete-btn {
-    background: #b89c6b; /* Latte */
+    background: #b89c6b;
     color: #fff;
   }
   .delete-btn:hover {
     background: #a38550;
   }
   
-  .add-fournisseur-card, .edit-fournisseur-card {
+  .add-origine-card, .edit-origine-card {
     margin-top: 2.5rem;
     padding: 1.3rem 1rem;
     background: #fff;
@@ -95,14 +95,14 @@
     box-shadow: 0 2px 14px #d7c4a330;
   }
   
-  .add-fournisseur-card h2, .edit-fournisseur-card h2 {
+  .add-origine-card h2, .edit-origine-card h2 {
     font-weight: 600;
     font-size: 1.07rem;
     margin-bottom: 1rem;
     color: #6f4e37;
   }
   
-  .add-fournisseur-form, .edit-fournisseur-form {
+  .add-origine-form, .edit-origine-form {
     display: flex;
     gap: 0.7rem;
     flex-wrap: wrap;
@@ -122,8 +122,8 @@
   
   .add-btn, .edit-btn[type="submit"] {
     border: none;
-    border-radius: 14px;
-    background: #7b9e6e; /* Coffee leaf green */
+    border-radius: 16px;
+    background: #7b9e6e;
     color: #fff;
     font-weight: 600;
     font-size: 1rem;
@@ -152,7 +152,7 @@
     font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
   }
-
+  
   .search-bar {
     margin-bottom: 1.5rem;
     text-align: right;
@@ -160,7 +160,7 @@
   
   .search-bar .form-field {
     background: #dfcaa3;
-    color: #fff; /* or #3d2c1a for coffee-dark text */
+    color: #fff;
     border: none;
     border-radius: 10px;
     padding: 0.5em 0.9em;
@@ -168,9 +168,9 @@
     min-width: 220px;
     box-shadow: 0 1px 4px #d7c4a330;
   }
-
+  
   .search-bar .search-btn {
     margin-left: 0.9rem;
-    color: #f3ead9; 
+    color: #f3ead9;
     opacity: 1;
   }

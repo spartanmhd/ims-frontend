@@ -1,0 +1,87 @@
+<div class="origine-container">
+    <h1 class="origine-title">Origines List</h1>
+  
+    <!-- Search Bar: OUTSIDE the table, with a button -->
+    <div class="search-bar">
+      <input
+        class="form-field"
+        type="text"
+        [(ngModel)]="searchNom"
+        placeholder="Search Nom..."
+        name="searchNom"
+      />
+      <button class="action-btn search-btn" (click)="triggerSearch()" type="button">
+        <span class="material-symbols-outlined">search</span>
+      </button>
+    </div>
+  
+    <div class="origine-table-card">
+      <table class="origine-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Fournisseur</th>
+            <th>Prix Achat</th>
+            <th>Quantité</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (origine of filteredOrigines(); track origine.idOrigine) {
+            <tr>
+              <td>{{ origine.idOrigine }}</td>
+              <td>{{ origine.nom }}</td>
+              <td>{{ getFournisseurName(origine.fournisseur.idFournisseur) }}</td>
+              <td>{{ origine.prixAchat }}</td>
+              <td>{{ origine.quantite }}</td>
+              <td>
+                <button class="action-btn edit-btn" (click)="editOrigine(origine)">
+                  <span class="material-symbols-outlined">edit</span> Edit
+                </button>
+                <button class="action-btn delete-btn" (click)="deleteOrigine(origine.idOrigine!)">
+                  <span class="material-symbols-outlined">delete</span> Delete
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Add Bar -->
+    <div class="add-origine-card">
+      <h2>Add Origine</h2>
+      <form class="add-origine-form" (ngSubmit)="addOrigine()">
+        <input class="form-field" placeholder="Nom Origine" [(ngModel)]="newOrigine.nom" name="nom" required>
+        <select class="form-field" [(ngModel)]="newOrigine.fournisseur.idFournisseur" name="fournisseur" required>
+          <option [ngValue]="0" disabled selected>Select Fournisseur</option>
+          <option *ngFor="let f of fournisseurs" [ngValue]="f.idFournisseur">{{ f.name }}</option>
+        </select>
+        <input class="form-field" type="number" placeholder="Prix Achat" [(ngModel)]="newOrigine.prixAchat" name="prixAchat" required>
+        <input class="form-field" type="number" placeholder="Quantité" [(ngModel)]="newOrigine.quantite" name="quantite" required>
+        <button class="add-btn" type="submit">
+          <span class="material-symbols-outlined">add_circle</span> Add
+        </button>
+      </form>
+    </div>
+  
+    <!-- Edit Modal/Card -->
+    @if (selectedOrigine) {
+      <div class="edit-origine-card">
+        <h2>Edit Origine</h2>
+        <form class="edit-origine-form" (ngSubmit)="updateOrigine()">
+          <input class="form-field" placeholder="Nom Origine" [(ngModel)]="selectedOrigine.nom" name="editNom" required>
+          <select class="form-field" [(ngModel)]="selectedOrigine.fournisseur.idFournisseur" name="editFournisseur" required>
+            <option [ngValue]="0" disabled>Select Fournisseur</option>
+            <option *ngFor="let f of fournisseurs" [ngValue]="f.idFournisseur">{{ f.name }}</option>
+          </select>
+          <input class="form-field" type="number" placeholder="Prix Achat" [(ngModel)]="selectedOrigine.prixAchat" name="editPrixAchat" required>
+          <input class="form-field" type="number" placeholder="Quantité" [(ngModel)]="selectedOrigine.quantite" name="editQuantite" required>
+          <button class="edit-btn" type="submit">
+            <span class="material-symbols-outlined">save</span> Update
+          </button>
+        </form>
+      </div>
+    }
+  </div>
